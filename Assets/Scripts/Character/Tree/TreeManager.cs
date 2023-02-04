@@ -18,6 +18,8 @@ public class TreeManager : MonoBehaviour {
     void Start() {
         tree = GetComponent<SpriteRenderer>();
         treeCollider = GetComponent<BoxCollider2D>();
+        _talkable = GetComponent<Talkable>();
+        _talkable.canTalk = false;
     }
 
     // void Tree()
