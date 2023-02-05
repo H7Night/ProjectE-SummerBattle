@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWin: 0
+  startProtect: 0
   gameMode: 0
 --- !u!1 &117098056
 GameObject:
@@ -1708,7 +1709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 02
   password: 02
-  talkIcon: {fileID: 1409818169}
+  talkIcon: {fileID: 1101589588}
   surePanel: {fileID: 1377008475}
   yesButton: {fileID: 504644792}
   noButton: {fileID: 2035565626}
@@ -3701,6 +3702,7 @@ MonoBehaviour:
   characterNameText: {fileID: 516322942}
   dialogueLineText: {fileID: 5735936}
   nextBar: {fileID: 0}
+  gamePanel: {fileID: 0}
   waterItem: {fileID: 117098058}
   waterCount: {fileID: 725137944}
 --- !u!4 &768346605
@@ -4417,6 +4419,7 @@ MonoBehaviour:
   talkIcon: {fileID: 421681738}
   questable: {fileID: 0}
   questTarget: {fileID: 0}
+  canTalk: 1
 --- !u!58 &1096620926
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16604,6 +16607,7 @@ MonoBehaviour:
   talkIcon: {fileID: 1673431368}
   questable: {fileID: 2059598290}
   questTarget: {fileID: 0}
+  canTalk: 1
 --- !u!61 &2059598289
 BoxCollider2D:
   m_ObjectHideFlags: 0
