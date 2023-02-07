@@ -24,10 +24,7 @@ public class StartUIManager : MonoBehaviour {
         settingButton.onClick.AddListener(ClickSettingButton);
         quitGameButton.onClick.AddListener(ClickQuitGameButton);
 
-
-
-
-        settingPanel.SetActive(false);
+        // HideSettingPanel();
     }
 
     /**
@@ -41,7 +38,7 @@ public class StartUIManager : MonoBehaviour {
      * 设置
      */
     public void ClickSettingButton() {
-        settingPanel.SetActive(true);
+        ShowSettingPanel();
     }
 
     /**
@@ -51,6 +48,22 @@ public class StartUIManager : MonoBehaviour {
         Application.Quit();
     }
 
+    /**
+     * 显示SettingPanel
+     */
+    void ShowSettingPanel() {
+        settingPanel.GetComponent<CanvasGroup>().alpha = 1;
+        settingPanel.GetComponent<CanvasGroup>().interactable = true;
+        settingPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
 
-    
+    /**
+     * 隐藏SettingPanel
+     */
+    void HideSettingPanel() {
+        settingPanel.GetComponent<CanvasGroup>().alpha = 0;
+        settingPanel.GetComponent<CanvasGroup>().interactable = false;
+        settingPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
 }

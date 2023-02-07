@@ -1673,6 +1673,7 @@ GameObject:
   - component: {fileID: 331565905}
   - component: {fileID: 331565904}
   - component: {fileID: 331565901}
+  - component: {fileID: 331565902}
   m_Layer: 0
   m_Name: Water (6)
   m_TagString: Untagged
@@ -1714,6 +1715,20 @@ MonoBehaviour:
   yesButton: {fileID: 504644792}
   noButton: {fileID: 2035565626}
   isEntered: 0
+--- !u!114 &331565902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331565899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0063502e731716c4b8eef038f4b92347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeQuestable: {fileID: 0}
+  show: 0
 --- !u!58 &331565904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4023,7 +4038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.999996, y: -3.5, z: -10}
+  m_LocalPosition: {x: -3.7222233, y: -3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5409,7 +5424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326926262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57, y: -7, z: -10}
+  m_LocalPosition: {x: -17.1, y: -7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1211052129}
@@ -14708,7 +14723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2823413251807818754, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57
+      value: -17.1
       objectReference: {fileID: 0}
     - target: {fileID: 2823413251807818754, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
       propertyPath: m_LocalPosition.y
