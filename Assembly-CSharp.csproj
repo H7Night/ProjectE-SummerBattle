@@ -56,7 +56,6 @@
      <Compile Include="Assets\Scripts\Comon\ReloadAttack.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\QuestTarget.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\Quest.cs" />
-     <Compile Include="Assets\Scripts\Character\TransPoint.cs" />
      <Compile Include="Assets\Scripts\Scence\ScenceTeleport.cs" />
      <Compile Include="Assets\Scripts\Character\Player\Attack\AttackItem.cs" />
      <Compile Include="Assets\Scripts\Comon\Manager\AttackItemUI.cs" />
@@ -82,6 +81,7 @@
      <Compile Include="Assets\Scripts\Comon\Manager\SettingUIManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueBehavior.cs" />
      <Compile Include="Assets\Scripts\API\IDamagable.cs" />
+     <Compile Include="Assets\Scripts\Scence\DeadLine.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Animation\Player" />

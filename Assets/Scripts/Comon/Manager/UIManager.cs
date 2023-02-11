@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour {
     public Image nextBar;
 
     public GameObject gamePanel;
+    private GameObject gameOverPanel;
 
     //Item
     private int itemCount;
@@ -33,13 +34,20 @@ public class UIManager : MonoBehaviour {
 
     private void Start() {
         gamePanel = GameObject.Find("GamePanel");
+        gameOverPanel = GameObject.Find("GameOverPanel");
+        
+        gameOverPanel.SetActive(false);
         waterItem.gameObject.SetActive(false);
         waterCount.gameObject.SetActive(false);
     }
 
     private void Update() {
+        CheckIsOver();
         if(PlayerController.Instance.isTalking)
             HideGamePanel();
+        else {
+            ShowGamePanel();
+        }
         UpdateItemCount();
     }
 
@@ -72,7 +80,16 @@ public class UIManager : MonoBehaviour {
         waterCount.text = "X" + itemCount;
     }
 
+    void ShowGamePanel() {
+        gamePanel.SetActive(true);
+    }
     void HideGamePanel() {
         gamePanel.SetActive(false);
+    }
+
+    void CheckIsOver() {
+        if (GameManager.Instance.gameMode == GameManager.GameMode.GameLose) {
+            gameOverPanel.SetActive(true);
+        }
     }
 }

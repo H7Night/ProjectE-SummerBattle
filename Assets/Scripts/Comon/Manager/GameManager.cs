@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public enum GameMode {
         GamePlay,
         GameWin,
+        GameLose,
         GameProtect,
         DialogueMoment
     }
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Update() {
+        if (gameMode == GameMode.GameLose) {
+            Time.timeScale = 0;
+        }
+        else {
+            Time.timeScale = 1;
+        }
         if (gameMode == GameMode.DialogueMoment) {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
                 //按下空格继续下一段播放

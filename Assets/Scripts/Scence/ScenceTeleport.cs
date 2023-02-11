@@ -24,7 +24,8 @@ public class ScenceTeleport : MonoBehaviour {
     }
 
     private void Update() {
-        if (isEntered && Input.GetKeyDown(KeyCode.T) && _questable.isFinished) {
+        if (_questable.isFinished && isEntered && Input.GetKeyDown(KeyCode.T)) {
+            Debug.Log("传送了");
             surePanel.SetActive(true);
         }
     }

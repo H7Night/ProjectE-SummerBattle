@@ -17,19 +17,21 @@ public class Talkable : MonoBehaviour {
     public bool canTalk = true;
 
     private void Update() {
-        if (isEntered && Input.GetKeyDown(KeyCode.E)
-                      && DialogueManager.Instance.dialoguePanel.activeInHierarchy == false
-                      && canTalk) {
-            DialogueManager.Instance.ShowDialogue(lines, hasName);
-            if (questable == null) {
+        if (isEntered &&
+            canTalk &&
+            DialogueManager.Instance.dialoguePanel.activeInHierarchy == false) {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) {
                 DialogueManager.Instance.ShowDialogue(lines, hasName);
-            }
-            else {
-                if (questable.quest.questStatus == Quest.QuestStatus.Completed) {
-                    DialogueManager.Instance.ShowDialogue(completedLines, hasName);
+                if (questable == null) {
+                    DialogueManager.Instance.ShowDialogue(lines, hasName);
                 }
                 else {
-                    DialogueManager.Instance.ShowDialogue(lines, hasName);
+                    if (questable.quest.questStatus == Quest.QuestStatus.Completed) {
+                        DialogueManager.Instance.ShowDialogue(completedLines, hasName);
+                    }
+                    else {
+                        DialogueManager.Instance.ShowDialogue(lines, hasName);
+                    }
                 }
             }
         }
