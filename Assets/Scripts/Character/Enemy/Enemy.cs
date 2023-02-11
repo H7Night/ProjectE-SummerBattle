@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
+public class Enemy : MonoBehaviour {
     public float health = 2;
     private float effectTime = 0;
     protected Animator anim;
@@ -10,8 +9,7 @@ public class Enemy : MonoBehaviour
 
     public event Action onDeath;
 
-    protected virtual void Start()
-    {
+    protected virtual void Start() {
         anim = GetComponent<Animator>();
         //获取材质本来的属性  
         GetComponent<Renderer>().material.color = new Color
@@ -22,29 +20,24 @@ public class Enemy : MonoBehaviour
             //需要改的就是这个属性：Alpha值  
             GetComponent<Renderer>().material.color.a);
     }
-    
-    public void Death()
-    {
+
+    public void Death() {
         if (onDeath != null)
             onDeath();
         GetComponent<Collider2D>().enabled = false;
         DeathEffect();
     }
 
-    public void JumpOn()
-    {
+    public void JumpOn() {
         anim.SetTrigger(Dying);
     }
 
-    private void DeathEffect()
-    {
-        if (effectTime < 1)
-        {
+    private void DeathEffect() {
+        if (effectTime < 1) {
             effectTime += Time.deltaTime;
         }
 
-        if (GetComponent<Renderer>().material.color.a <= 1)
-        {
+        if (GetComponent<Renderer>().material.color.a <= 1) {
             GetComponent<Renderer>().material.color = new Color
             (
                 GetComponent<Renderer>().material.color.r,

@@ -15,6 +15,8 @@ public class TreeManager : MonoBehaviour {
     public float timeBtwStages;
     private Talkable _talkable;
 
+    public int enemyCount;
+
     void Start() {
         tree = GetComponent<SpriteRenderer>();
         treeCollider = GetComponent<BoxCollider2D>();
@@ -31,6 +33,9 @@ public class TreeManager : MonoBehaviour {
     // }
 
     void Update() {
+        if (enemyCount == 3) {
+            GameManager.Instance.gameMode = GameManager.GameMode.GameLose;
+        }
         if (isFinished) {
             _talkable.canTalk = true;
         }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public enum GameMode {
         GamePlay,
         GameWin,
+        GameLose,
         DialogueMoment
     }
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.O)) {
             startProtect = true;
+            PlayerController.Instance.canShoot = true;
         }
     }
 
@@ -60,5 +62,9 @@ public class GameManager : MonoBehaviour {
 
     //通关
     public void GameWin() {
+    }
+
+    //失败
+    public void GameLose() {
     }
 }

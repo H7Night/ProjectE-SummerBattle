@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: lookforwater
+  questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
   questType: 0
   hasTalked: 0
   hasReach: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: lookforwater
+  questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
   questType: 0
   hasTalked: 0
   hasReach: 0
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: lookforwater
+  questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
   questType: 0
   hasTalked: 0
   hasReach: 0
@@ -1341,7 +1341,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 4689142949201000662, guid: 6f5ede5c8791d86488f1baa39ba354c6, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1537911266}
   - key: {fileID: -3218104768872288544, guid: 6f5ede5c8791d86488f1baa39ba354c6, type: 2}
     value: {fileID: 963194232}
   m_ExposedReferences:
@@ -1672,7 +1672,9 @@ GameObject:
   - component: {fileID: 331565906}
   - component: {fileID: 331565905}
   - component: {fileID: 331565904}
+  - component: {fileID: 331565907}
   - component: {fileID: 331565901}
+  - component: {fileID: 331565903}
   - component: {fileID: 331565902}
   m_Layer: 0
   m_Name: Water (6)
@@ -1710,7 +1712,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 02
   password: 02
-  talkIcon: {fileID: 1101589588}
   surePanel: {fileID: 1377008475}
   yesButton: {fileID: 504644792}
   noButton: {fileID: 2035565626}
@@ -1727,8 +1728,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0063502e731716c4b8eef038f4b92347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeQuestable: {fileID: 0}
-  show: 0
+--- !u!114 &331565903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331565899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2b179e1c2073742a668c10ac320f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest:
+    questName: "\u901A\u5411\u4E16\u754C\u7684\u4FE1\u7269"
+    questType: 1
+    questStatus: 0
+    requireAmount: 0
+  isFinished: 0
+  questTarget: {fileID: 0}
 --- !u!58 &331565904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1815,6 +1833,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &331565907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331565899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7b4c7093dc3c4499677bf3a6663e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEntered: 0
+  hasName: 0
+  lines:
+  - "\u62B1\u6B49\uFF0C\u4E0D\u80FD\u8BA9\u4F60\u79BB\u5F00\u8FD9\u91CC"
+  congratsLines:
+  - "\u6CA1\u60F3\u5230\u4ED6\u8FD9\u4E48\u4FE1\u4EFB\u4F60\u3002\u597D\uFF0C\u51C6\u5907\u53BB\u8FDC\u65B9\u5C31\u6765\u627E\u6211\u5427\u3002"
+  - "\uFF08\u6309\u4E0BT\u952E\uFF09"
+  completedLines:
+  - "\uFF08\u6309\u4E0BT\u952E\uFF09"
+  talkIcon: {fileID: 1101589588}
+  questable: {fileID: 331565903}
+  questTarget: {fileID: 0}
+  canTalk: 1
 --- !u!1 &342130100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,7 +2117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: lookforwater
+  questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
   questType: 0
   hasTalked: 0
   hasReach: 0
@@ -4038,7 +4081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7222233, y: -3.5, z: -10}
+  m_LocalPosition: {x: 200, y: -3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5424,7 +5467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326926262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.1, y: -7, z: -10}
+  m_LocalPosition: {x: 200, y: -7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1211052129}
@@ -5503,7 +5546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: lookforwater
+  questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
   questType: 0
   hasTalked: 0
   hasReach: 0
@@ -14717,13 +14760,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2823413251153361796, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2823413251807818754, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2823413251807818754, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.1
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2823413251807818754, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14767,6 +14814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
+--- !u!95 &1537911266 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2823413251807818758, guid: b6392b0a69fd58745aae03880b46c6d6, type: 3}
+  m_PrefabInstance: {fileID: 1537911265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1540829184
 GameObject:
   m_ObjectHideFlags: 0
@@ -16502,6 +16554,7 @@ GameObject:
   - component: {fileID: 2059598289}
   - component: {fileID: 2059598288}
   - component: {fileID: 2059598290}
+  - component: {fileID: 2059598291}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -16621,7 +16674,7 @@ MonoBehaviour:
   - "\u5FEB\u53BB\u5427\uFF0C\u5B69\u5B50\u3002"
   talkIcon: {fileID: 1673431368}
   questable: {fileID: 2059598290}
-  questTarget: {fileID: 0}
+  questTarget: {fileID: 2059598291}
   canTalk: 1
 --- !u!61 &2059598289
 BoxCollider2D:
@@ -16662,12 +16715,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quest:
-    questName: lookforwater
+    questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
     questType: 0
     questStatus: 0
     requireAmount: 1
   isFinished: 0
   questTarget: {fileID: 2075707804}
+--- !u!114 &2059598291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059598285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: "\u901A\u5411\u4E16\u754C\u7684\u4FE1\u7269"
+  questType: 1
+  hasTalked: 0
+  hasReach: 0
 --- !u!1 &2075707799
 GameObject:
   m_ObjectHideFlags: 0
@@ -16801,7 +16870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579b1835070b39a47b13adc1a0836533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: lookforwater
+  questName: "\u5BFB\u627E\u6C34\u8D44\u6E90"
   questType: 0
   hasTalked: 0
   hasReach: 0

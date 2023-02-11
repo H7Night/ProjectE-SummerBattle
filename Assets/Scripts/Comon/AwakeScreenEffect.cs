@@ -1,8 +1,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class AwakeScreenEffect : MonoBehaviour
-{
+public class AwakeScreenEffect : MonoBehaviour {
     [Range(0f, 1f)] [Tooltip("苏醒进度")] public float progress;
     [Range(0, 4)] [Tooltip("模糊迭代次数")] public int blurIterations = 3;
 
@@ -15,34 +14,26 @@ public class AwakeScreenEffect : MonoBehaviour
 
     [SerializeField] Material material;
 
-    Material Material
-    {
-        get
-        {
-            if (material == null)
-            {
+    Material Material {
+        get {
+            if (material == null) {
                 material = new Material(shader);
                 material.hideFlags = HideFlags.DontSave;
             }
-
             return material;
         }
     }
 
-    void OnDisable()
-    {
-        if (material)
-        {
+    void OnDisable() {
+        if (material) {
             DestroyImmediate(material);
         }
     }
 
-    void OnRenderImage(RenderTexture src, RenderTexture dest)
-    {
+    void OnRenderImage(RenderTexture src, RenderTexture dest) {
         Material.SetFloat("_Progress", progress);
 
-        if (progress < 1)
-        {
+        if (progress < 1) {
             // 由于降采样会影响模糊到清晰的连贯性，这里没有使用
             // int ds = Mathf.RoundToInt(downSample - (downSample - 1) * progress);
             // int rtW = src.width / ds;
@@ -57,8 +48,7 @@ public class AwakeScreenEffect : MonoBehaviour
 
             // int iterations = Mathf.RoundToInt(blurIterations - blurIterations * progress);
             float blurSize;
-            for (int i = 0; i < blurIterations; i++)
-            {
+            for (int i = 0; i < blurIterations; i++) {
                 // 将progress(0~1)映射到blurSize(blurSize~0)
                 blurSize = 1f + i * blurSpread;
                 blurSize = blurSize - blurSize * progress;
@@ -79,8 +69,7 @@ public class AwakeScreenEffect : MonoBehaviour
             Graphics.Blit(buffer0, dest);
             RenderTexture.ReleaseTemporary(buffer0);
         }
-        else
-        {
+        else {
             Graphics.Blit(src, dest);
         }
     }

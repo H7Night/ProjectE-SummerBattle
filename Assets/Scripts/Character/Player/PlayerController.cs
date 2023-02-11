@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using API;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class PlayerController : LivingEntity
@@ -38,15 +39,13 @@ public class PlayerController : LivingEntity
     public bool doubleJump;
 
     public bool canShoot;
-    // public bool wallGrab;
-    // public bool wallJumped;
-    // public bool wallSlide;
-    // public bool isDashing;
 
     [Space] [SerializeField] private bool isGround;
     private bool _hasDashed;
 
     [HideInInspector] public string scenePassword = "01";
+
+    // public PlayableDirector timeLine;
 
     //Animation
     private static readonly int Idling = Animator.StringToHash("idling");
@@ -82,11 +81,12 @@ public class PlayerController : LivingEntity
 
         fireCurrentSize = fireMaxSize;
         slider = GetComponentInChildren<Slider>();
+        // timeLine = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
     }
 
     private void Update()
     {
-        if (!isTalking)
+        if (!isTalking && canMove)
         {
             Jump();
             BetterJump();
@@ -97,7 +97,7 @@ public class PlayerController : LivingEntity
 
     void FixedUpdate()
     {
-        if (!isTalking)
+        if (!isTalking && canMove)
         {
             PlayerMove();
             isGround = Physics2D.OverlapCircle(groundCheck.position, 0.2f, ground);
@@ -275,5 +275,7 @@ public class PlayerController : LivingEntity
         }
     }
 
-
+    //判断能否移动
+    void CheckMove() {
+    }
 }
