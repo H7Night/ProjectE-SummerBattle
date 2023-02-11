@@ -42,7 +42,7 @@ public class PlayerController : LivingEntity {
     [Space] [SerializeField] private bool isGround;
     private bool _hasDashed;
 
-    [HideInInspector] public string scenePassword = "01";
+    public string scenePassword = "01";
 
     // public PlayableDirector timeLine;
 

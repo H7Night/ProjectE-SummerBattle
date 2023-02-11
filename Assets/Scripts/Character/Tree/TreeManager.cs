@@ -69,5 +69,6 @@ public class TreeManager : MonoBehaviour {
     void FinishGrow() {
         GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
         GameManager.Instance.gameMode = GameManager.GameMode.GameWin;
+        Debug.Log("Win!!!");
     }
 }
