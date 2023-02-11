@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class TreeManager : MonoBehaviour {
@@ -34,13 +33,13 @@ public class TreeManager : MonoBehaviour {
 
     void Update() {
         if (enemyCount == 3) {
-            GameManager.Instance.gameMode = GameManager.GameMode.GameLose;
+            GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
         }
         if (isFinished) {
             _talkable.canTalk = true;
         }
 
-        if (GameManager.Instance.startProtect) {
+        if (GameManager.Instance.gameMode == GameManager.GameMode.GameProtect) {
             _talkable.canTalk = false;
             StartGrow();
         }
@@ -59,7 +58,7 @@ public class TreeManager : MonoBehaviour {
     void StartGrow() {
         isFinished = false;
         timer += speed * Time.deltaTime;
-        //Change State
+        //换图片，下一阶段
         if (timer >= timeBtwStages && treeStage < treeStages.Length - 1) {
             timer = 0;
             treeStage++;
@@ -68,7 +67,7 @@ public class TreeManager : MonoBehaviour {
     }
 
     void FinishGrow() {
-        GameManager.Instance.startProtect = false;
-        // GameManager.Instance.gameMode = GameManager.GameMode.GameWin;
+        GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
+        GameManager.Instance.gameMode = GameManager.GameMode.GameWin;
     }
 }

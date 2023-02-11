@@ -737,8 +737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa53e44a9aaf3a4da3223275db3fdcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWin: 0
-  startProtect: 0
   gameMode: 0
 --- !u!1 &117098056
 GameObject:

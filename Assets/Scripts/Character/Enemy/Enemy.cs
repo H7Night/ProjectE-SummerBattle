@@ -12,8 +12,7 @@ public class Enemy : MonoBehaviour {
     protected virtual void Start() {
         anim = GetComponent<Animator>();
         //获取材质本来的属性  
-        GetComponent<Renderer>().material.color = new Color
-        (
+        GetComponent<Renderer>().material.color = new Color(
             GetComponent<Renderer>().material.color.r,
             GetComponent<Renderer>().material.color.g,
             GetComponent<Renderer>().material.color.b,
@@ -38,8 +37,7 @@ public class Enemy : MonoBehaviour {
         }
 
         if (GetComponent<Renderer>().material.color.a <= 1) {
-            GetComponent<Renderer>().material.color = new Color
-            (
+            GetComponent<Renderer>().material.color = new Color(
                 GetComponent<Renderer>().material.color.r,
                 GetComponent<Renderer>().material.color.g,
                 GetComponent<Renderer>().material.color.b,

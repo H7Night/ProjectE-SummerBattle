@@ -16,11 +16,14 @@ public class EnemyController : Enemy {
     }
 
     private void Update() {
-        if (health <= 0 || Vector2.Distance(transform.position, target.position) <= 0.5f ||
-            GameManager.Instance.gameMode == GameManager.GameMode.GameWin) {
+        if (health <= 0 || 
+            Vector2.Distance(transform.position, target.position) <= 0.5f ||
+            GameManager.Instance.gameMode != GameManager.GameMode.GameProtect) {
+            if (!isDead) {
+                tree.enemyCount++;
+                Death();
+            }
             isDead = true;
-            tree.enemyCount++;
-            Death();
         }
         else if (!isDead) {
             MoveToTarget();

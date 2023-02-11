@@ -32,23 +32,17 @@ public class SpawnEnemy : MonoBehaviour {
 
     //生成敌人
     void Update() {
-        if (!_isDisable && GameManager.Instance.startProtect &&
+        if (!_isDisable &&
+            GameManager.Instance.gameMode == GameManager.GameMode.GameProtect &&
             GameManager.Instance.gameMode != GameManager.GameMode.GameWin) {
-            if ((waitSpawnNum > 0 || currentWave.infinite) && Time.time > nextSpawnTime) //当前波敌人未召唤完 且 游戏运行时间大于下次召唤时间
-            {
-                waitSpawnNum--; //当前波敌人数量--
-                nextSpawnTime = Time.time + currentWave.timeBtwSpawn; //下一次生成时间间隔timeBtwSpawn秒
-                StartCoroutine(Spawn()); //敌人生成改成使用协程调用
-            }
+            Starte();
         }
     }
 
     void NextWave() {
         currentIndex++;
-
-        if (currentIndex - 1 <
-            Waves.Length) //最后一步，这次currentIndex是从1开始的，所以第三波的时候，index实际上等于3已经超过了Length的范围，所以再下一波的时候报错，我们可以限定范围
-        {
+        //最后一步，这次currentIndex是从1开始的，所以第三波的时候，index实际上等于3已经超过了Length的范围，所以再下一波的时候报错，可以限定范围
+        if (currentIndex - 1 < Waves.Length) {
             currentWave = Waves[currentIndex - 1]; //一开始index = 1
             waitSpawnNum = currentWave.enemyNum;
             spawnAliveNum = currentWave.enemyNum;
@@ -69,13 +63,27 @@ public class SpawnEnemy : MonoBehaviour {
 
     private void EnemyDeath() {
         spawnAliveNum--;
-        if (spawnAliveNum <= 0) //敌人全部阵亡则下一波
-        {
+        //敌人全部阵亡则下一波
+        if (spawnAliveNum <= 0) {
             NextWave();
         }
     }
 
     private void PlayerDeath() {
+        //玩家死亡
         _isDisable = true;
+    }
+
+    void Starte() {
+        //索引归0
+        currentIndex = 0;
+        spawnAliveNum = 0;
+        waitSpawnNum = currentWave.enemyNum;
+        if ((waitSpawnNum > 0 || currentWave.infinite) && Time.time > nextSpawnTime) //当前波敌人未召唤完 且 游戏运行时间大于下次召唤时间
+        {
+            waitSpawnNum--; //当前波敌人数量--
+            nextSpawnTime = Time.time + currentWave.timeBtwSpawn; //下一次生成时间间隔timeBtwSpawn秒
+            StartCoroutine(Spawn()); //敌人生成改成使用协程调用
+        }
     }
 }

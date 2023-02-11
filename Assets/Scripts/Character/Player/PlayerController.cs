@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 
-public class PlayerController : LivingEntity
-{
+public class PlayerController : LivingEntity {
     public static PlayerController Instance;
     private SpriteRenderer _sr;
     private Rigidbody2D _rb;
@@ -53,16 +52,12 @@ public class PlayerController : LivingEntity
     private static readonly int Jumping = Animator.StringToHash("jumping");
     private static readonly int Falling = Animator.StringToHash("falling");
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
+    private void Awake() {
+        if (Instance == null) {
             Instance = this;
         }
-        else
-        {
-            if (Instance != this)
-            {
+        else {
+            if (Instance != this) {
                 Destroy(gameObject);
             }
         }
@@ -70,8 +65,7 @@ public class PlayerController : LivingEntity
         DontDestroyOnLoad(gameObject);
     }
 
-    protected override void Start()
-    {
+    protected override void Start() {
         base.Start();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -80,37 +74,35 @@ public class PlayerController : LivingEntity
         firePoint = transform.Find("FirePoint").transform;
 
         fireCurrentSize = fireMaxSize;
+        //Slider
         slider = GetComponentInChildren<Slider>();
+        slider.maxValue = fireMaxSize;
         // timeLine = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
     }
 
-    private void Update()
-    {
-        if (!isTalking && canMove)
-        {
+    private void Update() {
+        if (!isTalking && canMove) {
             Jump();
             BetterJump();
             Shot();
         }
+
+        updateSlider();
         SwitchAnim();
     }
 
-    void FixedUpdate()
-    {
-        if (!isTalking && canMove)
-        {
+    void FixedUpdate() {
+        if (!isTalking && canMove) {
             PlayerMove();
             isGround = Physics2D.OverlapCircle(groundCheck.position, 0.2f, ground);
         }
-        else
-        {
+        else {
             _rb.velocity = new Vector2(0, 0);
             _animator.SetFloat(Running, 0);
         }
     }
 
-    void PlayerMove()
-    {
+    void PlayerMove() {
         _moveH = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         _moveV = Input.GetAxis("Vertical");
         _rb.velocity = new Vector2(_moveH * moveSpeed, _rb.velocity.y);
@@ -142,25 +134,21 @@ public class PlayerController : LivingEntity
 
     void Jump() //Jump & Double Jump
     {
-        if (isGround && doubleJump)
-        {
+        if (isGround && doubleJump) {
             _jumpTimes = 2;
         }
-        else if (isGround && !doubleJump)
-        {
+        else if (isGround && !doubleJump) {
             _jumpTimes = 1;
         }
 
-        if (isGround && Input.GetKeyDown(KeyCode.Space) && _jumpTimes == 1)
-        {
+        if (isGround && Input.GetKeyDown(KeyCode.Space) && _jumpTimes == 1) {
             //jumpParticle.Play();
             //jumpAudio.Play();
             _jumpTimes--;
             _rb.velocity = Vector2.up * jumpForce;
             _animator.SetBool(Jumping, true);
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && _jumpTimes == 0)
-        {
+        else if (Input.GetKeyDown(KeyCode.Space) && _jumpTimes == 0) {
             _jumpTimes--;
             //jumpAudio.Play();
             _rb.velocity = Vector2.up * jumpForce;
@@ -168,15 +156,12 @@ public class PlayerController : LivingEntity
         }
     }
 
-    void BetterJump()
-    {
-        if (_rb.velocity.y < -1f)
-        {
+    void BetterJump() {
+        if (_rb.velocity.y < -1f) {
             _rb.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
             _animator.SetBool(Falling, true);
         }
-        else if (_rb.velocity.y > 0 && !Input.GetKeyDown(KeyCode.Space))
-        {
+        else if (_rb.velocity.y > 0 && !Input.GetKeyDown(KeyCode.Space)) {
             _rb.velocity += Vector2.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
@@ -185,11 +170,8 @@ public class PlayerController : LivingEntity
 
     #region Attack
 
-    void Shot()
-    {
-        if (canShoot && Input.GetMouseButtonDown(0) && Time.time > attackTimer && fireCurrentSize > 0)
-
-        {
+    void Shot() {
+        if (canShoot && Input.GetMouseButtonDown(0) && Time.time > attackTimer && fireCurrentSize > 0) {
             fireCurrentSize--;
             attackTimer = Time.time + fireRate;
             Instantiate(attackPrefab, firePoint.position, transform.rotation);
@@ -197,22 +179,20 @@ public class PlayerController : LivingEntity
         }
     }
 
-    public void LoadFireSize()
-    {
-        if (slider.value == slider.maxValue)
-            fireCurrentSize = fireMaxSize;
+    /**
+     * 装弹
+     */
+    public void LoadFireSize() {
+        fireCurrentSize = fireMaxSize;
     }
 
     #endregion
 
-    void SwitchAnim()
-    {
-        if (_moveH < 0)
-        {
+    void SwitchAnim() {
+        if (_moveH < 0) {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        else if (_moveH > 0)
-        {
+        else if (_moveH > 0) {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
         //spriteRenderer.flipX = Physics2D.gravity.x > 0;
@@ -220,16 +200,13 @@ public class PlayerController : LivingEntity
 
         //掉落
         //_animator.SetBool(Idling, false);
-        if (_animator.GetBool(Jumping))
-        {
-            if (_rb.velocity.y < -1.0f)
-            {
+        if (_animator.GetBool(Jumping)) {
+            if (_rb.velocity.y < -1.0f) {
                 _animator.SetBool(Jumping, false);
                 _animator.SetBool(Falling, true);
             }
         }
-        else if (isGround)
-        {
+        else if (isGround) {
             _animator.SetBool(Falling, false);
             _animator.SetBool(Idling, true);
         }
@@ -258,15 +235,12 @@ public class PlayerController : LivingEntity
     }
 
     //碰到敌人
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Enemy")) {
             //消灭敌人
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 
-            if (_animator.GetBool(Falling))
-            {
+            if (_animator.GetBool(Falling)) {
                 Console.WriteLine("JumpOn");
                 enemy.JumpOn();
                 _rb.velocity = Vector2.up * jumpForce / 3;
@@ -277,5 +251,15 @@ public class PlayerController : LivingEntity
 
     //判断能否移动
     void CheckMove() {
+    }
+
+    void updateSlider() {
+        slider.value = fireCurrentSize;
+        if (slider.value == 0) {
+            slider.gameObject.SetActive(false);
+        }
+        else {
+            slider.gameObject.SetActive(true);
+        }
     }
 }

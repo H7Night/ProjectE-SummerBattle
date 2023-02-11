@@ -4,13 +4,11 @@ using UnityEngine.Playables;
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
-    public bool isWin;
-    public bool startProtect;
 
     public enum GameMode {
         GamePlay,
         GameWin,
-        GameLose,
+        GameProtect,
         DialogueMoment
     }
 
@@ -34,15 +32,10 @@ public class GameManager : MonoBehaviour {
 
     private void Update() {
         if (gameMode == GameMode.DialogueMoment) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
                 //按下空格继续下一段播放
                 ResumeTimeLine();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.O)) {
-            startProtect = true;
-            PlayerController.Instance.canShoot = true;
         }
     }
 
