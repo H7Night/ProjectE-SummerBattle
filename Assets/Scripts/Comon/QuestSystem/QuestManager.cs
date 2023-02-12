@@ -39,7 +39,6 @@ public class QuestManager : MonoBehaviour
     //在【领取好任务】【任务完成后】调用
     public void UpdateQuestList()
     {
-        //如果我们要将【完成的任务】移出UI任务列表，我们就不能这么遍历，而是遍历有多少UI任务栏
         for (int i = 0; i < PlayerQuest.Instance.questList.Count; i++)//有多少个任务显示多少个List，而不是有多少List显示多少个任务
         {
             questArray[i].transform.GetChild(0).GetComponent<Text>().text = PlayerQuest.Instance.questList[i].questName;

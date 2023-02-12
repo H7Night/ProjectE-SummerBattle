@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Character\Tree\TreeManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueClip.cs" />
      <Compile Include="Assets\Scripts\Comon\AwakeScreenEffect.cs" />
+     <Compile Include="Assets\Scripts\Scence\DeadLine.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\FishController.cs" />
      <Compile Include="Assets\Scripts\Comon\DialogueSystem\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\Scence\ToUnderSea.cs" />
@@ -81,7 +82,6 @@
      <Compile Include="Assets\Scripts\Comon\Manager\SettingUIManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueBehavior.cs" />
      <Compile Include="Assets\Scripts\API\IDamagable.cs" />
-     <Compile Include="Assets\Scripts\Scence\DeadLine.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Animation\Player" />
@@ -148,6 +148,7 @@
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Animation\Fish" />
      <Folder Include="Assets\Sprites\Items\Fx\item-feedback" />
+     <Folder Include="Assets\Sprites\Items\Tree" />
      <Folder Include="Assets\Material" />
      <Folder Include="Assets\Sprites\Tiles" />
      <Folder Include="Assets\Sprites\Character\Player\TimeLine" />
