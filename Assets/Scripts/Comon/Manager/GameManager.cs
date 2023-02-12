@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
@@ -66,5 +67,9 @@ public class GameManager : MonoBehaviour {
 
     //失败
     public void GameLose() {
+    }
+
+    public void ToScene04() {
+        SceneManager.LoadScene("04");
     }
 }
