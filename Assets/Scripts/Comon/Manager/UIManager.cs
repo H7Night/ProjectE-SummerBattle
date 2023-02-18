@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
@@ -18,6 +19,8 @@ public class UIManager : MonoBehaviour {
     private int itemCount;
     public Image waterItem;
     public Text waterCount;
+
+    private Button nextButton;
 
     private void Awake() {
         if (Instance == null) {
@@ -39,6 +42,9 @@ public class UIManager : MonoBehaviour {
         gameOverPanel.SetActive(false);
         waterItem.gameObject.SetActive(false);
         waterCount.gameObject.SetActive(false);
+
+        nextButton = GameObject.Find("NextButton").GetComponent<Button>();
+        nextButton.onClick.AddListener(ClickNextButton);
     }
 
     private void Update() {
@@ -91,5 +97,12 @@ public class UIManager : MonoBehaviour {
         if (GameManager.Instance.gameMode == GameManager.GameMode.GameLose) {
             gameOverPanel.SetActive(true);
         }
+    }
+
+    /**
+     * 跳转场景04
+     */
+    void ClickNextButton() {
+        SceneManager.LoadScene("04");
     }
 }

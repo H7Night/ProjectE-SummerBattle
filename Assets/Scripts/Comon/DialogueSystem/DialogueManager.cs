@@ -88,7 +88,9 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    //交流任务 -- 检查任务是否已经完成，如果完成的话返回值为True
+    /**
+     * 交流任务 -- 检查任务是否已经完成，如果完成的话返回值为True
+     */
     public bool GetQuestResult() {
         if (talkable.questable == null)
             return false;
@@ -104,7 +106,9 @@ public class DialogueManager : MonoBehaviour {
         return false;
     }
 
-    //打开对话窗口，文字滚动
+    /**
+     * 打开对话窗口，文字滚动
+     */
     public void ShowDialogue(string[] newLines, bool hasName) {
         dialogueLines = newLines;
         currentLine = 0;
@@ -120,7 +124,9 @@ public class DialogueManager : MonoBehaviour {
         PlayerController.Instance.isTalking = true;
     }
 
-    //可对话的NPC对话【居左对齐】工具类游戏对象，比如路标【居中对齐】
+    /**
+     * 可对话的NPC对话【居左对齐】工具类游戏对象，比如路标【居中对齐】
+     */
     private void SetTextAlign(bool hasName) {
         if (hasName)
             dialogueText.alignment = (UnityEngine.TextAnchor)TextAlignment.Left;
@@ -128,7 +134,9 @@ public class DialogueManager : MonoBehaviour {
             dialogueText.alignment = (UnityEngine.TextAnchor)TextAlignment.Center;
     }
 
-    //检查对话内容是否有对话者的名字
+    /**
+     * 检查对话内容是否有对话者的名字
+     */
     private void CheckName() {
         if (dialogueLines[currentLine].StartsWith("n-")) {
             //在NameText处显示名字，并且去除标记n-
@@ -137,7 +145,9 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    //文字滚动效果
+    /**
+     * 文字滚动效果
+     */
     private IEnumerator ScrollingText() {
         _isScrolling = true;
         dialogueText.text = "";

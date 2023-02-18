@@ -4,23 +4,43 @@ using System.Collections;
 public class Talkable : MonoBehaviour {
     [SerializeField] private bool isEntered;
 
-    public bool hasName; //默认没名字
+    /**
+     * 名字，默认没名字
+     */
+    public bool hasName;
+    
+    /**
+     * 对话内容
+     */
     [TextArea(1, 5)] public string[] lines;
     [TextArea(1, 4)] public string[] congratsLines;
     [TextArea(1, 4)] public string[] completedLines;
 
+    /**
+     * 对话角色头顶提示图标
+     */
     public GameObject talkIcon;
 
-    public Questable questable; //当前说话的NPC，是否含有可以委派任务的能力
-    public QuestTarget questTarget; //这个脚本中并没有访问，但是在DialogueManager脚本中有使用到这个变量
+    /**
+     * 当前说话的NPC，是否含有可以委派任务的能力
+     */
+    public Questable questable;
 
+    /**
+     * 这个脚本中并没有使用，在DialogueManager脚本中有使用到这个变量
+     */
+    public QuestTarget questTarget;
+
+    /**
+     * 能否对话
+     */
     public bool canTalk = true;
 
     private void Update() {
         if (isEntered &&
             canTalk &&
             DialogueManager.Instance.dialoguePanel.activeInHierarchy == false) {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)) {
+            if (Input.GetKeyDown(KeyCode.E)) {
                 DialogueManager.Instance.ShowDialogue(lines, hasName);
                 if (questable == null) {
                     DialogueManager.Instance.ShowDialogue(lines, hasName);
@@ -37,7 +57,9 @@ public class Talkable : MonoBehaviour {
         }
     }
 
-    //玩家进入
+    /**
+     * 玩家进入
+     */
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player") && canTalk) {
             isEntered = true;
@@ -49,7 +71,9 @@ public class Talkable : MonoBehaviour {
         }
     }
 
-    //玩家离开
+    /**
+     * 玩家离开
+     */
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player") && canTalk) {
             isEntered = false;
@@ -61,7 +85,9 @@ public class Talkable : MonoBehaviour {
         }
     }
 
-    //talkIcon 渐出
+    /**
+     * talkIcon 渐出
+     */
     IEnumerator FadeIn() {
         talkIcon.GetComponent<CanvasGroup>().alpha = 0;
         while (talkIcon.GetComponent<CanvasGroup>().alpha < 1) {
