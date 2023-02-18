@@ -87,7 +87,6 @@
      <Folder Include="Assets\Animation\Player" />
      <Folder Include="Assets\Sprites\Effects" />
      <Folder Include="Assets\Sprites\Character" />
-     <Folder Include="Assets\Sprites\Effects\Fx\power-up" />
      <None Include="Assets\Material\Shader\AwakeScreenEffect.shader" />
      <Folder Include="Assets\Scripts\Scence" />
      <Folder Include="Assets\Sprites\Character\Player\Fall" />
@@ -126,7 +125,6 @@
      <Folder Include="Assets\Sounds" />
      <Folder Include="Assets\Scripts\Comon\QuestSystem" />
      <Folder Include="Assets\Scripts\Character\Player\Attack" />
-     <Folder Include="Assets\Sprites\Effects\Fx\impact" />
      <Folder Include="Assets\Scripts\Comon" />
      <Folder Include="Assets\Scripts\Comon\Manager" />
      <Folder Include="Assets\Sprites\Character\Player\Run" />

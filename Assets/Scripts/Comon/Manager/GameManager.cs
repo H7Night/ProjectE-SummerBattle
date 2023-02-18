@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
-
+    public PlayableDirector timeLine;
 
     public enum GameMode {
         GamePlay,
@@ -32,13 +34,23 @@ public class GameManager : MonoBehaviour {
         Application.targetFrameRate = 30; //帧率
     }
 
+    private void Start() {
+        timeLine = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
+    }
+
     private void Update() {
+        //胜利
+        if (gameMode == GameMode.GameWin) {
+            GameWin();
+        }
+        //失败
         if (gameMode == GameMode.GameLose) {
             Time.timeScale = 0;
         }
         else {
             Time.timeScale = 1;
         }
+        //空格键和鼠标左键控制视频时的对话
         if (gameMode == GameMode.DialogueMoment) {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
                 //按下空格继续下一段播放
@@ -63,13 +75,10 @@ public class GameManager : MonoBehaviour {
 
     //通关
     public void GameWin() {
+        timeLine.Play();
     }
 
     //失败
     public void GameLose() {
-    }
-
-    public void ToScene04() {
-        SceneManager.LoadScene("04");
     }
 }

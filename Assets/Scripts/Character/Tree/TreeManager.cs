@@ -32,18 +32,20 @@ public class TreeManager : MonoBehaviour {
     // }
 
     void Update() {
-        if (enemyCount == 3) {
-            GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
-        }
+
         if (isFinished) {
             _talkable.canTalk = true;
         }
-
+        //正在进行树苗胜场
         if (GameManager.Instance.gameMode == GameManager.GameMode.GameProtect) {
             _talkable.canTalk = false;
             StartGrow();
         }
-
+        //失败
+        if (enemyCount == 3) {
+            GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
+        }
+        //胜利
         if (treeStage == treeStages.Length - 1) {
             isFinished = true;
             FinishGrow();
@@ -55,6 +57,9 @@ public class TreeManager : MonoBehaviour {
         treeCollider.size = tree.sprite.bounds.size;
     }
 
+    /**
+     * 开始生长
+     */
     void StartGrow() {
         isFinished = false;
         timer += speed * Time.deltaTime;
@@ -65,9 +70,11 @@ public class TreeManager : MonoBehaviour {
             UpdateTree();
         }
     }
-
+    /**
+     * 生长完成，胜利
+     */
     void FinishGrow() {
-        GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
+        // GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
         GameManager.Instance.gameMode = GameManager.GameMode.GameWin;
         Debug.Log("Win!!!");
     }
