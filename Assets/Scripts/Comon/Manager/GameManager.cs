@@ -1,12 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
-using UnityEngine.Timeline;
+
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
-    public PlayableDirector timeLine;
+
+    /**
+     * 游戏状态
+     */
+    public GameMode gameMode;
 
     public enum GameMode {
         GamePlay,
@@ -16,7 +18,9 @@ public class GameManager : MonoBehaviour {
         DialogueMoment
     }
 
-    public GameMode gameMode;
+    /**
+     * 对话时的动画
+     */
     private PlayableDirector currentDirector;
 
     private void Awake() {
@@ -30,19 +34,13 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
+        //状态为游戏中
         gameMode = GameMode.GamePlay;
-        Application.targetFrameRate = 30; //帧率
-    }
-
-    private void Start() {
-        timeLine = GameObject.Find("TimeLine").GetComponent<PlayableDirector>();
+        //帧率
+        Application.targetFrameRate = 30;
     }
 
     private void Update() {
-        //胜利
-        if (gameMode == GameMode.GameWin) {
-            GameWin();
-        }
         //失败
         if (gameMode == GameMode.GameLose) {
             Time.timeScale = 0;
@@ -50,6 +48,7 @@ public class GameManager : MonoBehaviour {
         else {
             Time.timeScale = 1;
         }
+
         //空格键和鼠标左键控制视频时的对话
         if (gameMode == GameMode.DialogueMoment) {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
@@ -59,6 +58,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    //播放停止
     public void PauseTimeLine(PlayableDirector playableDirector) {
         currentDirector = playableDirector;
         gameMode = GameMode.DialogueMoment;
@@ -73,10 +73,6 @@ public class GameManager : MonoBehaviour {
         UIManager.Instance.ToggleDialogueBox(true);
     }
 
-    //通关
-    public void GameWin() {
-        timeLine.Play();
-    }
 
     //失败
     public void GameLose() {

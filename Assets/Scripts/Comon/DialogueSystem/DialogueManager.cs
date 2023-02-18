@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     private void Start() {
+        dialoguePanel = GameObject.Find("DialoguePanel");
         dialoguePanel.SetActive(false);
     }
 

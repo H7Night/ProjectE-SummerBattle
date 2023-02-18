@@ -46,7 +46,7 @@
      <Compile Include="Assets\Scripts\Character\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Character\Tree\TreeManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueClip.cs" />
-     <Compile Include="Assets\Scripts\Comon\AwakeScreenEffect.cs" />
+     <Compile Include="Assets\Scripts\Comon\Playable\AwakeScreenEffect.cs" />
      <Compile Include="Assets\Scripts\Scence\DeadLine.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\FishController.cs" />
      <Compile Include="Assets\Scripts\Comon\DialogueSystem\DialogueManager.cs" />
@@ -54,7 +54,7 @@
      <Compile Include="Assets\Scripts\Scence\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\Character\Item.cs" />
      <Compile Include="Assets\Scripts\Comon\Manager\UIManager.cs" />
-     <Compile Include="Assets\Scripts\Comon\ReloadAttack.cs" />
+     <Compile Include="Assets\Scripts\Character\Player\Attack\ReloadAttack.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\QuestTarget.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\Quest.cs" />
      <Compile Include="Assets\Scripts\Scence\ScenceTeleport.cs" />
@@ -68,10 +68,11 @@
      <Compile Include="Assets\Scripts\Character\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueTrack.cs" />
      <Compile Include="Assets\Scripts\Scence\Entrance.cs" />
+     <Compile Include="Assets\Scripts\Comon\Playable\WinTimeLine.cs" />
      <Compile Include="Assets\Scripts\Comon\Manager\GameManager.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\QuestManager.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\Wave.cs" />
-     <Compile Include="Assets\Scripts\Comon\Camera.cs" />
+     <Compile Include="Assets\Scripts\Comon\Playable\Camera.cs" />
      <Compile Include="Assets\Scripts\Comon\DialogueSystem\Talkable.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\SpawnEnemy.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />
