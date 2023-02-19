@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Comon\Manager\AttackItemUI.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\PlayerQuest.cs" />
      <Compile Include="Assets\Scripts\Character\Player\Attack\Attack.cs" />
+     <Compile Include="Assets\Scripts\Comon\DontDestory.cs" />
      <Compile Include="Assets\Scripts\API\LivingEntity.cs" />
      <Compile Include="Assets\Scripts\Character\Player\Collision.cs" />
      <Compile Include="Assets\Scripts\Scence\PlatformController.cs" />
@@ -83,6 +84,7 @@
      <Compile Include="Assets\Scripts\Comon\Manager\SettingUIManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueBehavior.cs" />
      <Compile Include="Assets\Scripts\API\IDamagable.cs" />
+     <Compile Include="Assets\Scripts\Scence\Platform2.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Animation\Player" />

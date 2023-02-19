@@ -64,7 +64,10 @@ public class PlayerController : LivingEntity {
     /**
      * 场景密码
      */
-    public string scenePassword = "01";
+    // public string[] passwords = {"00","01","02","03","04","05"};
+
+    public string scenePassword;
+    // public int sceneIndex = 0;
 
     /**
      * 动画状态
@@ -114,6 +117,7 @@ public class PlayerController : LivingEntity {
 
         updateSlider();
         SwitchAnim();
+        // scenePassword = passwords[sceneIndex];
     }
 
     void FixedUpdate() {

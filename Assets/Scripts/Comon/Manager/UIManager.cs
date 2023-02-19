@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour {
         gamePanel = GameObject.Find("GamePanel");
         gameOverPanel = GameObject.Find("GameOverPanel");
 
-        
+
         waterItem.gameObject.SetActive(false);
         waterCount.gameObject.SetActive(false);
         //失败，重开按钮
@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour {
         nextButton = GameObject.Find("NextButton").GetComponent<Button>();
         nextButton.onClick.AddListener(ClickNextButton);
         nextButton.gameObject.SetActive(false);
-        
+
         gameOverPanel.SetActive(false);
     }
 
@@ -141,6 +141,7 @@ public class UIManager : MonoBehaviour {
         gamePanel.SetActive(false);
     }
 
+    //检查是否失败
     void CheckIsOver() {
         if (GameManager.Instance.gameMode == GameManager.GameMode.GameLose) {
             gameOverPanel.SetActive(true);

@@ -302,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   health: 5
+  transform: {fileID: 0}
   groundCheck: {fileID: 2823413251487290385}
   isTalking: 0
   ground:
@@ -318,7 +319,7 @@ MonoBehaviour:
   doubleJump: 0
   canShoot: 0
   isGround: 0
-  scenePassword: 01
+  scenePassword: 
 --- !u!114 &2823413251807818756
 MonoBehaviour:
   m_ObjectHideFlags: 0

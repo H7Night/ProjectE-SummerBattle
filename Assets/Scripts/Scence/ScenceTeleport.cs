@@ -1,11 +1,10 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScenceTeleport : MonoBehaviour {
     [SerializeField] private string sceneName;
-    [SerializeField] public string password;
+    [SerializeField] public string password = "01";
 
     // public GameObject talkIcon;
     public GameObject surePanel;
@@ -53,8 +52,11 @@ public class ScenceTeleport : MonoBehaviour {
      * 确定传送
      */
     public void ClickYesButton() {
+        // PlayerController.Instance.sceneIndex = 1;
         PlayerController.Instance.scenePassword = password;
-        SceneManager.LoadSceneAsync(sceneName);
+        if(PlayerController.Instance.scenePassword == password)
+            SceneManager.LoadSceneAsync(sceneName);
+        surePanel.SetActive(false);
     }
 
     /**

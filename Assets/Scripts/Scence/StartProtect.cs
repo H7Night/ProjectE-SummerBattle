@@ -3,13 +3,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StartProtect : MonoBehaviour {
-    private GameObject startPanel;
+    /**
+     * UI窗口
+     */
+    public GameObject startPanel;
+
+    /**
+     * 有任务的
+     */
     private Questable _questable;
 
+    /**
+     * 确定按钮
+     */
     private Button yesButton;
+
+    /**
+     * 取消按钮
+     */
     private Button noButton;
+
+    /**
+     * 是否进入
+     */
     public bool isEntered;
 
+    /**
+     * 对话图标
+     */
     public GameObject talkIcon;
 
     private void Start() {
@@ -26,7 +47,7 @@ public class StartProtect : MonoBehaviour {
             startPanel.SetActive(true);
         }
     }
-    
+
     /**
      * 确定
      */
