@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueBehavior.cs" />
      <Compile Include="Assets\Scripts\API\IDamagable.cs" />
      <Compile Include="Assets\Scripts\Scence\NextButton.cs" />
+     <Compile Include="Assets\Scripts\Scence\EndUI.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Animation\Player" />
