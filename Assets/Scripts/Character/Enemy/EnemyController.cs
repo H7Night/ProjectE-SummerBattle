@@ -30,6 +30,10 @@ public class EnemyController : Enemy {
             MoveToTarget();
         }
 
+        if (Vector2.Distance(transform.position, target) <= 0.5f) {
+            Death();
+        }
+
         //翻转
         Vector3 pos = target - transform.position;
         if (Vector3.Cross(transform.forward, pos).y > 0) {

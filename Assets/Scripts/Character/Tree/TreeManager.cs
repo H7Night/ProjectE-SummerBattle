@@ -70,7 +70,7 @@ public class TreeManager : MonoBehaviour {
         }
 
         //失败
-        if (enemyCount == 3) {
+        if (enemyCount == 100) {
             GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
         }
 
@@ -86,7 +86,8 @@ public class TreeManager : MonoBehaviour {
      */
     void UpdateTree() {
         tree.sprite = treeStages[treeStage];
-        treeCollider.size = tree.sprite.bounds.size;
+        //根据图片改变碰撞体大小
+        // treeCollider.size = tree.sprite.bounds.size;
     }
 
     /**
@@ -109,11 +110,15 @@ public class TreeManager : MonoBehaviour {
     void FinishGrow() {
         // GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
         GameManager.Instance.gameMode = GameManager.GameMode.GameWin;
-        Debug.Log("Win!!!");
+        Debug.Log("胜利!!!");
     }
 
+    /**
+     * 敌人进入碰撞体
+     */
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Enemy")) {
+            Debug.Log("进来了哦" + enemyCount);
             enemyCount++;
         }
     }

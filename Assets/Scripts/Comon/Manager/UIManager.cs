@@ -83,7 +83,7 @@ public class UIManager : MonoBehaviour {
         //失败，退出按钮
         loseQuickButton = GameObject.Find("QuickButton").GetComponent<Button>();
         loseQuickButton.onClick.AddListener(LoseQuick);
-        //游戏胜利，跳转场景按钮
+        // --游戏胜利，跳转场景按钮
         nextButton = GameObject.Find("NextButton").GetComponent<Button>();
         nextButton.onClick.AddListener(ClickNextButton);
         nextButton.gameObject.SetActive(false);
