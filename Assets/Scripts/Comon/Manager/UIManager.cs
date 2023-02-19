@@ -52,6 +52,11 @@ public class UIManager : MonoBehaviour {
      */
     private Button nextButton;
 
+    /**
+     * 第三关的开始保护Panel
+     */
+    public GameObject startPanel;
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -68,7 +73,7 @@ public class UIManager : MonoBehaviour {
     private void Start() {
         gamePanel = GameObject.Find("GamePanel");
         gameOverPanel = GameObject.Find("GameOverPanel");
-
+        startPanel = GameObject.Find("StartPanel");
 
         waterItem.gameObject.SetActive(false);
         waterCount.gameObject.SetActive(false);
@@ -84,6 +89,7 @@ public class UIManager : MonoBehaviour {
         nextButton.gameObject.SetActive(false);
 
         gameOverPanel.SetActive(false);
+        HideStartPanel();
     }
 
     private void Update() {
@@ -175,5 +181,19 @@ public class UIManager : MonoBehaviour {
             currentSceceName = activeScene.name;
             Console.WriteLine(currentSceceName);
         }
+    }
+
+    //隐藏开始保护Panel
+    public void HideStartPanel() {
+        startPanel.GetComponent<CanvasGroup>().alpha = 0;
+        startPanel.GetComponent<CanvasGroup>().interactable = false;
+        startPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
+    //显示开始保护Panel
+    public void ShowStartPanel() {
+        startPanel.GetComponent<CanvasGroup>().alpha = 1;
+        startPanel.GetComponent<CanvasGroup>().interactable = true;
+        startPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 }

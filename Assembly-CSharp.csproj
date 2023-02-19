@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Scence\DeadLine.cs" />
      <Compile Include="Assets\Scripts\Character\Enemy\FishController.cs" />
      <Compile Include="Assets\Scripts\Comon\DialogueSystem\DialogueManager.cs" />
+     <Compile Include="Assets\Scripts\Scence\Platform2.cs" />
      <Compile Include="Assets\Scripts\Scence\ToUnderSea.cs" />
      <Compile Include="Assets\Scripts\Scence\SceneTransition.cs" />
      <Compile Include="Assets\Scripts\Character\Item.cs" />
@@ -84,7 +85,6 @@
      <Compile Include="Assets\Scripts\Comon\Manager\SettingUIManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueBehavior.cs" />
      <Compile Include="Assets\Scripts\API\IDamagable.cs" />
-     <Compile Include="Assets\Scripts\Scence\Platform2.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Animation\Player" />

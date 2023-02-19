@@ -1,39 +1,37 @@
-using System;
 using UnityEngine;
 
 public class EnemyController : Enemy {
-    public Transform target;
-    public float moveSpeed;
-    private SpriteRenderer sr;
-    public bool isDead = false;
+    /**
+     * 目标
+     */
+    public Vector3 target;
 
-    public TreeManager tree;
+    /**
+     * 移动速度
+     */
+    public float moveSpeed;
+
+    /**
+     * 图片
+     */
+    private SpriteRenderer sr;
 
     protected override void Start() {
-        target = FindObjectOfType<TreeManager>().transform;
         sr = GetComponent<SpriteRenderer>();
-        tree = GameObject.Find("Tree").GetComponent<TreeManager>();
+        target = new Vector3(65, -8.5f, 0);
     }
 
     private void Update() {
         // 被攻击杀死，游戏模式切换（失败或胜利）
         if (health <= 0 || GameManager.Instance.gameMode != GameManager.GameMode.GameProtect) {
-            isDead = true;
             Death();
         }
-        // 到达树苗处
-        else if (Vector2.Distance(transform.position, target.position) <= 0.5f) {
-            if (!isDead) {
-                tree.enemyCount++;
-                Death();
-            }
-        }
-        else if (!isDead) {
+        else {
             MoveToTarget();
         }
 
-        //Flip
-        Vector3 pos = target.transform.position - transform.position;
+        //翻转
+        Vector3 pos = target - transform.position;
         if (Vector3.Cross(transform.forward, pos).y > 0) {
             sr.flipX = true;
         }
@@ -42,8 +40,9 @@ public class EnemyController : Enemy {
         }
     }
 
+    //移动到目标
     void MoveToTarget() {
         transform.position =
-            Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            Vector2.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
     }
 }

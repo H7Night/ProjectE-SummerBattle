@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TreeManager : MonoBehaviour {
@@ -109,5 +110,11 @@ public class TreeManager : MonoBehaviour {
         // GameManager.Instance.gameMode = GameManager.GameMode.GamePlay;
         GameManager.Instance.gameMode = GameManager.GameMode.GameWin;
         Debug.Log("Win!!!");
+    }
+
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (col.CompareTag("Enemy")) {
+            enemyCount++;
+        }
     }
 }

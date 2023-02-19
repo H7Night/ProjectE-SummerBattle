@@ -8,7 +8,7 @@ public class PlayerController : LivingEntity {
     private SpriteRenderer _sr;
     private Rigidbody2D _rb;
     private Animator _animator;
-    public  Transform transform;
+    public Transform transform;
 
     /**
      * 检查是否在地面
@@ -65,7 +65,6 @@ public class PlayerController : LivingEntity {
      * 场景密码
      */
     // public string[] passwords = {"00","01","02","03","04","05"};
-
     public string scenePassword;
     // public int sceneIndex = 0;
 
@@ -73,6 +72,7 @@ public class PlayerController : LivingEntity {
      * 动画状态
      */
     private static readonly int Idling = Animator.StringToHash("idling");
+
     private static readonly int Running = Animator.StringToHash("running");
     private static readonly int Jumping = Animator.StringToHash("jumping");
     private static readonly int Falling = Animator.StringToHash("falling");
@@ -105,7 +105,10 @@ public class PlayerController : LivingEntity {
     }
 
     private void Update() {
-        if (!canShoot) {
+        if (GameManager.Instance.gameMode == GameManager.GameMode.GameProtect) {
+            slider.gameObject.SetActive(true);
+        }
+        else {
             slider.gameObject.SetActive(false);
         }
 

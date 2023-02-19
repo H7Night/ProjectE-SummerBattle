@@ -23,10 +23,14 @@ public class Enemy : MonoBehaviour {
     public void Death() {
         if (onDeath != null)
             onDeath();
+        //关闭碰撞体
         GetComponent<Collider2D>().enabled = false;
+
+        //死亡渐隐效果
         DeathEffect();
     }
 
+    //玩家踩下，死亡
     public void JumpOn() {
         anim.SetTrigger(Dying);
     }
@@ -47,6 +51,6 @@ public class Enemy : MonoBehaviour {
             );
         }
 
-        Destroy(this.gameObject, 3f); //3秒后消除
+        Destroy(this.gameObject, 2f); //*秒后消除
     }
 }
