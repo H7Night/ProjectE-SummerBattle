@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Character\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueTrack.cs" />
      <Compile Include="Assets\Scripts\Scence\Entrance.cs" />
+     <Compile Include="Assets\Scripts\Scence\NextButton.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\WinTimeLine.cs" />
      <Compile Include="Assets\Scripts\Comon\Manager\GameManager.cs" />
      <Compile Include="Assets\Scripts\Comon\QuestSystem\QuestManager.cs" />
@@ -84,9 +85,8 @@
      <Compile Include="Assets\Scripts\Comon\Manager\StartUIManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Manager\SettingUIManager.cs" />
      <Compile Include="Assets\Scripts\Comon\Playable\DialogueBehavior.cs" />
-     <Compile Include="Assets\Scripts\API\IDamagable.cs" />
-     <Compile Include="Assets\Scripts\Scence\NextButton.cs" />
      <Compile Include="Assets\Scripts\Scence\EndUI.cs" />
+     <Compile Include="Assets\Scripts\API\IDamagable.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Animation\Player" />
@@ -112,6 +112,7 @@
      <Folder Include="Assets\Animation\Item\Water" />
      <Folder Include="Assets\Sprites" />
      <Folder Include="Assets\Scenes" />
+     <Folder Include="Assets\Sounds\BGM" />
      <Folder Include="Assets\Sprites\Effects\Animation" />
      <Folder Include="Assets\Sprites\Tiles" />
      <Folder Include="Assets\Scripts\Character\Enemy" />
@@ -119,6 +120,7 @@
      <Folder Include="Assets\Scripts\Comon\Playable" />
      <Folder Include="Assets\Sprites\Tiles\Tile" />
      <Folder Include="Assets\Sprites\Effects\Fx" />
+     <Folder Include="Assets\Sounds\Effect" />
      <Folder Include="Assets\Timeline" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Sprites\Character\Enemy" />
@@ -131,6 +133,7 @@
      <Folder Include="Assets\Scripts\Comon\QuestSystem" />
      <Folder Include="Assets\Scripts\Character\Player\Attack" />
      <Folder Include="Assets\Scripts\Comon" />
+     <Folder Include="Assets\Sounds\8-Bit_Action_Free" />
      <Folder Include="Assets\Scripts\Comon\Manager" />
      <Folder Include="Assets\Sprites\Character\Player\Run" />
      <Folder Include="Assets\Sprites\Resource" />

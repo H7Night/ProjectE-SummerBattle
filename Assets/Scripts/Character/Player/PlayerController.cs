@@ -66,7 +66,13 @@ public class PlayerController : LivingEntity {
      */
     // public string[] passwords = {"00","01","02","03","04","05"};
     public string scenePassword;
+
     // public int sceneIndex = 0;
+
+    /**
+     * 音效
+     */
+    [Header("Audio")] public AudioSource jumpAudio;
 
     /**
      * 动画状态
@@ -175,14 +181,14 @@ public class PlayerController : LivingEntity {
 
         if (isGround && Input.GetKeyDown(KeyCode.Space) && _jumpTimes == 1) {
             //jumpParticle.Play();
-            //jumpAudio.Play();
+            jumpAudio.Play();
             _jumpTimes--;
             _rb.velocity = Vector2.up * jumpForce;
             _animator.SetBool(Jumping, true);
         }
         else if (Input.GetKeyDown(KeyCode.Space) && _jumpTimes == 0) {
             _jumpTimes--;
-            //jumpAudio.Play();
+            jumpAudio.Play();
             _rb.velocity = Vector2.up * jumpForce;
             _animator.SetBool(Jumping, true);
         }

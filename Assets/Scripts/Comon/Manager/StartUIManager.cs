@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,7 +12,8 @@ public class StartUIManager : MonoBehaviour {
 
     //Setting Panel
     private GameObject settingPanel;
-
+    
+    public AudioMixer audioMixer;
 
     private void Start() {
         //Main Panel
@@ -66,4 +68,10 @@ public class StartUIManager : MonoBehaviour {
         settingPanel.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
+    /**
+     * 调节音量
+     */
+    public void SetVolume(float value) {
+        audioMixer.SetFloat("MainVolume", value);
+    }
 }
